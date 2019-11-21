@@ -12,20 +12,47 @@ namespace Kata_Master_Mind.Controller
             _gameData = gameData;
         }
 
-
         public void startGame()
         {
             firstUserPrompt();
-            var firstGuess = inputFormater(Console.ReadLine());
-            _gameData.setCurrentColourList(firstGuess);
+            bool gameFinished = false;
+
+            while (!gameFinished)
+            {
+                string currentUserInput = Console.ReadLine();
+                string errorCode = checkInputForErrors(currentUserInput.ToLower().Trim());
+                
+                if (errorCode == "valid")
+                {
+                    var firstGuess = InputFormater(currentUserInput);
+                    _gameData.setCurrentColourList(firstGuess);
+                    
+                    foreach(var item in _gameData.getCurrentColourList())
+                    {
+                        Console.WriteLine(item);
+                    }
+                    
+                    promptUser();
+                }
+                else
+                {
+                    Console.WriteLine(errorCode);
+                    errorHandler(errorCode);
+                }
+                
+
+            }
+
+
+            //errorhandler with while loop
+  
         }
         
-        
-        
-        //check input
-        //diff constructors for diff inputs
-        
-        //update currentGameData object
-        //run outputview
+            //check current guess for errors
+            //output as such
+            //check current guess against correct 
+            //generate rng output based on check
+            
+            //update game object and repeat
     }
 }

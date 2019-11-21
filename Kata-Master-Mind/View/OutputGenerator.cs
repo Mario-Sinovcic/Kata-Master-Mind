@@ -24,10 +24,18 @@ namespace Kata_Master_Mind
             Console.WriteLine("Your guess: ");
         }
         
-        public void gameHeader()
+        public void promptUser()
         {
-            Console.WriteLine("~~~~~ MasterMind ~~~~~\n\n");  
-            Console.WriteLine("Turns: \n");
+            gameHeader();
+            //BW output
+            Console.WriteLine("Not quite, enter another guess:\n");
+        }
+        
+        private void gameHeader()
+        {
+            Console.Clear();
+            Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
+            //Console.WriteLine("Turns: \n");
         }
         
         public void drawHorizontalLine()

@@ -1,18 +1,17 @@
 using System;
+using Kata_Master_Mind.Controller;
 
 namespace Kata_Master_Mind
 {
-    public class InputHandler
+    public class InputHandler : InputValidator
     {
         //attach to interface
 
-        protected string[] inputFormater(string userInput)
+        protected string[] InputFormater(string userInput) 
         {
-            //potentially add regex here to get rid of all white spaces
-            
             var formattedInput = new string[4];
             var answerCounter = 0;
-            
+
             for (int i = 0; i < userInput.Trim().Length; i++)
             {
                 if (userInput[i] != ' ')
@@ -21,6 +20,7 @@ namespace Kata_Master_Mind
                     answerCounter++;
                 }
             }
+
             return formattedInput;
         }
 
