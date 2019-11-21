@@ -4,5 +4,8 @@ namespace Kata_Master_Mind
     {
         //check input
         //diff constructors for diff inputs
+        
+        //update currentGameData object
+        //run outputview
     }
 }

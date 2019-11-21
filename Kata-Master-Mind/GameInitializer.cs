@@ -25,9 +25,11 @@ namespace Kata_Master_Mind
                 _generatedColourList[i] = _allColourCollection[rand.Next(_allColourCollection.Length)];
             }
             
+            CurrentGameData gameDataObject = new CurrentGameData(_generatedColourList);
+            
             foreach(var item in _generatedColourList)
             {
-                Console.WriteLine(item.ToString());
+                Console.WriteLine(item);
             }
         }
     }
