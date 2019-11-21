@@ -4,7 +4,7 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Kata-Master-Mind" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="GameData.cs" t="Include" />
+        <e p="CurrentGameData.cs" t="Include" />
         <e p="GameInitializer.cs" t="Include" />
         <e p="Kata-Master-Mind.csproj" t="IncludeRecursive" />
         <e p="obj" t="ExcludeRecursive">
@@ -15,6 +15,7 @@
           </e>
         </e>
         <e p="OutputController.cs" t="Include" />
+        <e p="OutputView.cs" t="Include" />
         <e p="Program.cs" t="Include" />
       </e>
       <e p="Kata-Master-Mind.sln" t="IncludeFlat" />

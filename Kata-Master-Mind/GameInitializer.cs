@@ -31,6 +31,12 @@ namespace Kata_Master_Mind
             {
                 Console.WriteLine(item);
             }
+
+            Console.WriteLine(gameDataObject.getTurn());
+            //TODO
+            //Console.WriteLine(gameDataObject.getCorrectColourList()); check this before continuing 
+            //Console.WriteLine(gameDataObject.getCurrentColourList());
+            
         }
     }
 }
