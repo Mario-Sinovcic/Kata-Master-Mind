@@ -1,6 +1,7 @@
 using System;
+using Kata_Master_Mind.Model;
 
-namespace Kata_Master_Mind
+namespace Kata_Master_Mind.Controller
 {
     public class OutputController : OutputView
     {
@@ -14,7 +15,9 @@ namespace Kata_Master_Mind
 
         public void startGame()
         {
-            Console.WriteLine(_gameData.getTurn() + "test");
+            firstUserPrompt();
+            var firstGuess = inputFormater(Console.ReadLine());
+            _gameData.setCurrentColourList(firstGuess);
         }
         
         

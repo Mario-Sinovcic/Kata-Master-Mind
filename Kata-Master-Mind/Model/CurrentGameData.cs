@@ -1,4 +1,4 @@
-namespace Kata_Master_Mind
+namespace Kata_Master_Mind.Model
 {
     public class CurrentGameData
     {

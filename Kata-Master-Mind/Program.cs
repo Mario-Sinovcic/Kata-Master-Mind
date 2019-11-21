@@ -1,10 +1,11 @@
 ﻿using System;
+using Kata_Master_Mind.Controller;
 
 namespace Kata_Master_Mind
 {
-    class Program
+    static class Program
     {
-        static void Main(string[] args)
+        private static void Main()
         {
             //read config
             

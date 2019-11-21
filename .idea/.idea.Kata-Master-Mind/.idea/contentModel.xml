@@ -6,6 +6,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controller" t="Include">
           <e p="GameInitializer.cs" t="Include" />
+          <e p="InputHandler.cs" t="Include" />
           <e p="OutputController.cs" t="Include" />
         </e>
         <e p="Kata-Master-Mind.csproj" t="IncludeRecursive" />
@@ -19,9 +20,10 @@
             </e>
           </e>
         </e>
-        <e p="OutputView.cs" t="Include" />
         <e p="Program.cs" t="Include" />
-        <e p="View" t="Include" />
+        <e p="View" t="Include">
+          <e p="OutputView.cs" t="Include" />
+        </e>
       </e>
       <e p="Kata-Master-Mind.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />
