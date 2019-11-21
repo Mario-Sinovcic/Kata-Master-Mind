@@ -4,9 +4,14 @@
     <e p="$PROJECT_DIR$" t="IncludeFlat">
       <e p="Kata-Master-Mind" t="IncludeRecursive">
         <e p="bin" t="ExcludeRecursive" />
-        <e p="CurrentGameData.cs" t="Include" />
-        <e p="GameInitializer.cs" t="Include" />
+        <e p="Controller" t="Include">
+          <e p="GameInitializer.cs" t="Include" />
+          <e p="OutputController.cs" t="Include" />
+        </e>
         <e p="Kata-Master-Mind.csproj" t="IncludeRecursive" />
+        <e p="Model" t="Include">
+          <e p="CurrentGameData.cs" t="Include" />
+        </e>
         <e p="obj" t="ExcludeRecursive">
           <e p="Debug" t="Include">
             <e p="netcoreapp3.0" t="Include">
@@ -14,9 +19,9 @@
             </e>
           </e>
         </e>
-        <e p="OutputController.cs" t="Include" />
         <e p="OutputView.cs" t="Include" />
         <e p="Program.cs" t="Include" />
+        <e p="View" t="Include" />
       </e>
       <e p="Kata-Master-Mind.sln" t="IncludeFlat" />
       <e p="packages" t="ExcludeRecursive" />

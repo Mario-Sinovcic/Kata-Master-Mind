@@ -5,12 +5,11 @@ namespace Kata_Master_Mind
         private string[] currentColours;
         private string[] correctColours;
         private int turnCounter;
-        
+
         public CurrentGameData(string[] correctcolours)
-        {
+        { 
             correctColours = correctcolours;
             turnCounter = 0;
-
         }
         public CurrentGameData(string[] currentcolours, string[] correctcolours)
         {

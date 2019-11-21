@@ -15,8 +15,12 @@ namespace Kata_Master_Mind
             _generatedColourList = new string[4];
             
             GenerateRandomColours();
+            
+            CurrentGameData gameDataObject = new CurrentGameData(_generatedColourList);
+            OutputController outputController = new OutputController(gameDataObject);
+            outputController.startGame();
         }
-        
+
         private void GenerateRandomColours()
         {
             for (int i = 0; i < _playableColours; i++)
@@ -24,19 +28,6 @@ namespace Kata_Master_Mind
                 Random rand = new Random();
                 _generatedColourList[i] = _allColourCollection[rand.Next(_allColourCollection.Length)];
             }
-            
-            CurrentGameData gameDataObject = new CurrentGameData(_generatedColourList);
-            
-            foreach(var item in _generatedColourList)
-            {
-                Console.WriteLine(item);
-            }
-
-            Console.WriteLine(gameDataObject.getTurn());
-            //TODO
-            //Console.WriteLine(gameDataObject.getCorrectColourList()); check this before continuing 
-            //Console.WriteLine(gameDataObject.getCurrentColourList());
-            
         }
     }
 }
