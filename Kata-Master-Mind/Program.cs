@@ -6,7 +6,10 @@ namespace Kata_Master_Mind
     {
         static void Main(string[] args)
         {
-            Console.WriteLine("Hello World!");
+            //read config
+            
+            //creat game generation object with config
+            GameInitializer gameInitializer = new GameInitializer();
         }
     }
 }
