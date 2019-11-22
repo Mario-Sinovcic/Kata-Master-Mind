@@ -24,6 +24,15 @@ namespace Kata_Master_Mind
             Console.WriteLine("Please inter your first guess (e.g., r g b b)");
             Console.WriteLine("Your guess: ");
         }
+
+        public void generateWin()
+        {
+            
+            Console.Clear();
+            Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
+            Console.WriteLine("Well done!\n\nYOU WON");
+            Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
+        }
         
         public void promptUser(string[] outputChars)
         {
@@ -38,18 +47,18 @@ namespace Kata_Master_Mind
         {
             gameHeader();
             Console.WriteLine("ERROR");
-            Console.WriteLine("Error Details: "+errorValue);
-            Console.WriteLine("\n\nPlease re-enter you guess:");
+            Console.WriteLine("|| "+errorValue +"\n||");
+            Console.WriteLine("\nPlease re-enter you guess:");
         }
         
         private void gameHeader()
         {
             Console.Clear();
             Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
-            //Console.WriteLine("Turns: \n");
+            Console.WriteLine("Turns:");
         }
-        
-        public void drawHorizontalLine()
+
+        private void drawHorizontalLine()
         {
             Console.WriteLine(" ---------------");
         }

@@ -12,7 +12,7 @@ namespace Kata_Master_Mind.Controller
             
             if (userInput.Length != 7)
             {
-                return "inputLengthError";
+                return "Error: you must pass 4 colours!";
             }
             
             //Regex regex = new Regex("r|g|b|o|p|y|␣");
@@ -21,7 +21,7 @@ namespace Kata_Master_Mind.Controller
                 if(colour!='r'&&colour!='g'&&colour!='b'&&colour!='o'&&colour!='p'&&colour!='y'&&colour!=' ')
                 //if (!(Regex.IsMatch(colour.ToString(), @"r|g|b|o|p|y|␣")))
                 {
-                    return "invalidInputType";
+                    return "Error: you have given an invalid colour!";
                 }
             }
             return "valid";

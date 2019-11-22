@@ -19,7 +19,7 @@ namespace Kata_Master_Mind.Controller
             
             CurrentGameData gameDataObject = new CurrentGameData(_generatedColourList);
             OutputController outputController = new OutputController(gameDataObject);
-            outputController.startGame();
+            outputController.StartGame();
         }
 
         private void GenerateRandomColours()
