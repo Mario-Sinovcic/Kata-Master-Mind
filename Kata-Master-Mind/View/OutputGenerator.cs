@@ -25,11 +25,11 @@ namespace Kata_Master_Mind
             Console.WriteLine("Your guess: ");
         }
         
-        public void promptUser()
+        public void promptUser(string[] outputChars)
         {
             gameHeader();
             drawHorizontalLine();
-            Console.WriteLine("| - | - | - | - |");
+            Console.WriteLine("| "+outputChars[0]+" | "+outputChars[1]+" | "+outputChars[2]+" | "+outputChars[3]+" |");
             drawHorizontalLine();
             Console.WriteLine("\nNot quite, enter another guess:");
         }

@@ -5,7 +5,8 @@ namespace Kata_Master_Mind.Controller
 {
     public class OutputController : OutputView
     {
-        private CurrentGameData _gameData;
+        private readonly CurrentGameData _gameData;
+        private readonly string[] _winningOutput = new string[]{"b", "b", "b", "b"};
         
         public OutputController(CurrentGameData gameData)
         {
@@ -27,9 +28,15 @@ namespace Kata_Master_Mind.Controller
                     var firstGuess = InputFormater(currentUserInput);
                     _gameData.setCurrentColourList(firstGuess);
 
-                    //calculateResult();
-                    promptUser();
-
+                    if (calculateResult().Equals(_winningOutput))
+                    {
+                        gameFinished = true;
+                        Console.WriteLine("yay");
+                    }
+                    else
+                    {
+                        promptUser(calculateResult());
+                    }
                 }
                 else
                 {
@@ -42,25 +49,17 @@ namespace Kata_Master_Mind.Controller
         private string[] calculateResult()
         {
             string[] guessOutput = new string[]{"w","w","w","w"};
-            var i = 0;
+            var pos = 0;
             
-            foreach (string colourGuess in _gameData.getCurrentColourList())
+            for(int i=0;i<_gameData.getCurrentColourList().Length;i++) //(string colourGuess in _gameData.getCurrentColourList())
             {
-                foreach (string correctColour in _gameData.getCorrectColourList())
+                string colourGuess = _gameData.getCurrentColourList()[i];
+                if (colourGuess.Equals(_gameData.getCorrectColourList()[i]))
                 {
-                    if (correctColour == colourGuess)
-                    {
-                        guessOutput[i] = "b";
-                        i++;
-                    }
+                        guessOutput[pos] = "b"; 
+                        pos++;
                 }
             }
-
-            foreach (string val in guessOutput)
-            {
-                Console.WriteLine(val);
-            }
-            
             return guessOutput;
         }
     }

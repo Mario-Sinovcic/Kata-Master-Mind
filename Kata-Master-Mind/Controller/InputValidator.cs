@@ -8,14 +8,14 @@ namespace Kata_Master_Mind.Controller
     {
         protected string checkInputForErrors(string userInput)
         {
-            string allowableLetters = "rgbopy"; //pulled from game config
+            //string allowableLetters = "rgbopy"; //pulled from game config
             
             if (userInput.Length != 7)
             {
                 return "inputLengthError";
             }
             
-//            Regex regex = new Regex("r|g|b|o|p|y|␣");
+            //Regex regex = new Regex("r|g|b|o|p|y|␣");
             foreach (char colour in userInput)
             {
                 if(colour!='r'&&colour!='g'&&colour!='b'&&colour!='o'&&colour!='p'&&colour!='y'&&colour!=' ')
