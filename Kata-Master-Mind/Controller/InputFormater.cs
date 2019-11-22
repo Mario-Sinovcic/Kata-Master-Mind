@@ -12,13 +12,10 @@ namespace Kata_Master_Mind
             var formattedInput = new string[4];
             var answerCounter = 0;
 
-            for (int i = 0; i < userInput.Trim().Length; i++)
+            foreach (var guess in userInput.Split(' '))
             {
-                if (userInput[i] != ' ')
-                {
-                    formattedInput[answerCounter] = convertLetter(userInput[i]);
-                    answerCounter++;
-                }
+                formattedInput[answerCounter] = convertLetter(Convert.ToChar(guess));
+                answerCounter++;
             }
 
             return formattedInput;

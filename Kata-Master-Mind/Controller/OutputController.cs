@@ -28,14 +28,15 @@ namespace Kata_Master_Mind.Controller
                     var firstGuess = InputFormater(currentUserInput);
                     _gameData.setCurrentColourList(firstGuess);
 
-                    if (calculateResult().Equals(_winningOutput))
+                    var result = calculateResult();
+                    if (result.Equals(_winningOutput))
                     {
                         gameFinished = true;
                         Console.WriteLine("yay");
                     }
                     else
                     {
-                        promptUser(calculateResult());
+                        promptUser(result);
                     }
                 }
                 else
