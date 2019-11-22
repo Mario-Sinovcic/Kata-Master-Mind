@@ -1,24 +1,30 @@
+using System;
+using System.Linq;
+using System.Text.RegularExpressions;
+
 namespace Kata_Master_Mind.Controller
 {
     public class InputValidator //uses error config
     {
         protected string checkInputForErrors(string userInput)
         {
+            string allowableLetters = "rgbopy"; //pulled from game config
+            
             if (userInput.Length != 7)
             {
                 return "inputLengthError";
             }
             
-//            string allowableLetters = "rgbopy"; //pulled from game config
-//
-//            foreach(char c in userInput)
-//            {
-//                if (!allowableLetters.Contains(c.ToString()))
-//                    return "invalidColour";
-//            }
-//            return "valid";
+//            Regex regex = new Regex("r|g|b|o|p|y|␣");
+            foreach (char colour in userInput)
+            {
+                if(colour!='r'&&colour!='g'&&colour!='b'&&colour!='o'&&colour!='p'&&colour!='y'&&colour!=' ')
+                //if (!(Regex.IsMatch(colour.ToString(), @"r|g|b|o|p|y|␣")))
+                {
+                    return "invalidInputType";
+                }
+            }
             return "valid";
-
         }
         
         protected string errorHandler(string errorCode)

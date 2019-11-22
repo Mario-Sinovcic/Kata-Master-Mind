@@ -18,6 +18,7 @@ namespace Kata_Master_Mind
 
         protected void firstUserPrompt()
         {
+            Console.Clear();
             Console.WriteLine("~~~~~ MasterMind ~~~~~\n");
             Console.WriteLine("Welcome to the Mastermind game.");
             Console.WriteLine("Please inter your first guess (e.g., r g b b)");
@@ -27,8 +28,18 @@ namespace Kata_Master_Mind
         public void promptUser()
         {
             gameHeader();
-            //BW output
-            Console.WriteLine("Not quite, enter another guess:\n");
+            drawHorizontalLine();
+            Console.WriteLine("| - | - | - | - |");
+            drawHorizontalLine();
+            Console.WriteLine("\nNot quite, enter another guess:");
+        }
+        
+        public void promptUser(string errorValue)
+        {
+            gameHeader();
+            Console.WriteLine("ERROR");
+            Console.WriteLine("Error Details: "+errorValue);
+            Console.WriteLine("\n\nPlease re-enter you guess:");
         }
         
         private void gameHeader()
@@ -40,7 +51,7 @@ namespace Kata_Master_Mind
         
         public void drawHorizontalLine()
         {
-            Console.WriteLine("- -- -- -- -- -\n");
+            Console.WriteLine(" ---------------");
         }
     }
 }
