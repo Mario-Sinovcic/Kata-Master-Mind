@@ -6,4 +6,9 @@
         <RootNamespace>Kata_Master_Mind</RootNamespace>
     </PropertyGroup>
 
+    <ItemGroup>
+      <PackageReference Include="LinqKit" Version="1.1.17-preview-04" />
+      <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    </ItemGroup>
+
 </Project>

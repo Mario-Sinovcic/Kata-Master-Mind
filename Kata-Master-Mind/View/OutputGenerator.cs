@@ -1,13 +1,10 @@
 using System;
 using Kata_Master_Mind.Controller;
-using Kata_Master_Mind.Model;
 
 namespace Kata_Master_Mind.View
 {
     public class OutputGenerator : InputHandler  //TODO:  change this
     {
-        public CurrentGameData _currentGameData;
-        
         public static void FirstUserPrompt()
         {
             Console.Clear();
@@ -25,11 +22,11 @@ namespace Kata_Master_Mind.View
             Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
         }
         
-        public static void GenerateLoss()
+        public static void GenerateLoss(int turnLimit)
         {
             Console.Clear();
             Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
-            Console.WriteLine("Error: you have had more than 60 tries!");
+            Console.WriteLine("Error: you have had more than "+ turnLimit +" tries!");
             Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
         }
 

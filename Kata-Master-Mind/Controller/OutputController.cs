@@ -37,8 +37,9 @@ namespace Kata_Master_Mind.Controller
                     if (ConvertStringArrayToString(result).Equals(ConvertStringArrayToString(_winningOutput)))
                     {
                         OutputGenerator.GenerateWin();
-                        break;
+                        return;
                     }
+                    
                     _turnCounter++;
                     _gameData.SetTurn(_turnCounter);
                     OutputGenerator.PromptUser(result, _gameData.GetTurn());
@@ -49,7 +50,7 @@ namespace Kata_Master_Mind.Controller
                 }
             }
 
-            OutputGenerator.GenerateLoss();
+            OutputGenerator.GenerateLoss(_gameData.GetTurnLimit());
         }
 
         private string[] CalculateResult()

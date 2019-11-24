@@ -7,10 +7,7 @@ namespace Kata_Master_Mind
     {
         private static void Main()
         {
-            //read config
-            
-            //creat game generation object with config
-            GameInitializer gameInitializer = new GameInitializer();
+            var gameInitializer = new GameInitializer("/Users/mario.sinovcic/Documents/RiderProjects/Kata-Master-Mind/Kata-Master-Mind/Model/config.json");
         }
     }
 }

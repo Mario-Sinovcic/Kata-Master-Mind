@@ -7,10 +7,10 @@ namespace Kata_Master_Mind.Model
         private readonly int _turnLimit;
         private int _currentTurn;
 
-        public CurrentGameData(string[] correctcolours)
+        public CurrentGameData(string[] correctcolours, int turnLimit)
         { 
             _correctColours = correctcolours;
-            _turnLimit = 60;
+            _turnLimit = turnLimit;
             _currentTurn = 0;
         }
 
