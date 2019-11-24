@@ -3,7 +3,7 @@ using Kata_Master_Mind.Controller;
 
 namespace Kata_Master_Mind
 {
-    static class Program
+    internal static class Program
     {
         private static void Main()
         {

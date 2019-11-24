@@ -2,29 +2,29 @@ namespace Kata_Master_Mind.Model
 {
     public class CurrentGameData
     {
-        private string[] currentColours;
-        private string[] correctColours;
-        private int turnLimit;
+        private string[] _currentColours;
+        private readonly string[] _correctColours;
+        private int _turnLimit;
 
         public CurrentGameData(string[] correctcolours)
         { 
-            correctColours = correctcolours;
-            turnLimit = 60;
+            _correctColours = correctcolours;
+            _turnLimit = 60;
         }
         public CurrentGameData(string[] currentcolours, string[] correctcolours)
         {
-            currentColours = currentcolours;
-            correctColours = correctcolours;
-            turnLimit = 60;
+            _currentColours = currentcolours;
+            _correctColours = correctcolours;
+            _turnLimit = 60;
         }
         
-        public string[] getCorrectColourList() { return correctColours; }
+        public string[] GetCorrectColourList() { return _correctColours; }
         
-        public string[] getCurrentColourList() { return currentColours; }
-        public void setCurrentColourList(string[] value) { currentColours = value; }
+        public string[] GetCurrentColourList() { return _currentColours; }
+        public void SetCurrentColourList(string[] value) { _currentColours = value; }
         
-        public int getTurn() { return turnLimit; }
-        public void setTurn(int turn) { turnLimit = turn; }
+        public int GetTurn() { return _turnLimit; }
+        public void SetTurn(int turn) { _turnLimit = turn; }
 
     }
 }

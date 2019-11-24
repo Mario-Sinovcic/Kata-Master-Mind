@@ -1,26 +1,25 @@
 using System;
-using Kata_Master_Mind.Controller;
 
-namespace Kata_Master_Mind
+namespace Kata_Master_Mind.Controller
 {
     public class InputHandler : InputValidator
     {
         //attach to interface
 
-        protected string[] InputFormater(string userInput) 
+        protected string[] InputFormatter(string userInput) 
         {
             var formattedInput = new string[4];
             var answerCounter = 0;
 
             foreach (var guess in userInput.Trim().Split(' '))
             {
-                formattedInput[answerCounter] = convertLetter(Convert.ToChar(guess));
+                formattedInput[answerCounter] = ConvertLetter(Convert.ToChar(guess));
                 answerCounter++;
             }
             return formattedInput;
         }
 
-        private string convertLetter(char letter)
+        private string ConvertLetter(char letter)
         {
             if (letter == 'r')
             {

@@ -1,22 +1,11 @@
 using System;
+using Kata_Master_Mind.Controller;
 
-namespace Kata_Master_Mind
+namespace Kata_Master_Mind.View
 {
-    public class OutputView : InputHandler  //TODO:  change this
+    public class OutputGenerator : InputHandler  //TODO:  change this
     {
-        //default output "no errors"
-        protected void response(string[] currentGuess)
-        {
-            //just display the ooutput
-        }
-
-        protected void errorResponse(int errorCode)
-        {
-            //if statements
-            //just display the output
-        }
-
-        protected void firstUserPrompt()
+        public static void FirstUserPrompt()
         {
             Console.Clear();
             Console.WriteLine("~~~~~ MasterMind ~~~~~\n");
@@ -25,7 +14,7 @@ namespace Kata_Master_Mind
             Console.WriteLine("Your guess: ");
         }
 
-        public void generateWin()
+        public static void GenerateWin()
         {
             
             Console.Clear();
@@ -33,17 +22,17 @@ namespace Kata_Master_Mind
             Console.WriteLine("Well done!\n\nYOU WON");
             Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
         }
-        
-        public void promptUser(string[] outputChars)
+
+        public void PromptUser(string[] outputChars)
         {
             gameHeader();
-            drawHorizontalLine();
+            DrawHorizontalLine();
             Console.WriteLine("| "+outputChars[0]+" | "+outputChars[1]+" | "+outputChars[2]+" | "+outputChars[3]+" |");
-            drawHorizontalLine();
+            DrawHorizontalLine();
             Console.WriteLine("\nNot quite, enter another guess:");
         }
-        
-        public void promptUser(string errorValue)
+
+        public void PromptUser(string errorValue)
         {
             gameHeader();
             Console.WriteLine("ERROR");
@@ -58,7 +47,7 @@ namespace Kata_Master_Mind
             Console.WriteLine("Turns:");
         }
 
-        private void drawHorizontalLine()
+        private static void DrawHorizontalLine()
         {
             Console.WriteLine(" ---------------");
         }

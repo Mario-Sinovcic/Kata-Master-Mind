@@ -1,63 +1,66 @@
 using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Text;
-using System.Threading;
 using Kata_Master_Mind.Model;
+using Kata_Master_Mind.View;
 
 namespace Kata_Master_Mind.Controller
 {
-    public class OutputController : OutputView
+    public class OutputController : InputHandler
     {
         private readonly CurrentGameData _gameData;
-        private readonly string[] _winningOutput = new string[]{"b", "b", "b", "b"};
+        private OutputGenerator _outputGenerator;
+        private readonly string[] _winningOutput = {"b", "b", "b", "b"};
         
         public OutputController(CurrentGameData gameData)
         {
             _gameData = gameData;
+            _outputGenerator = new OutputGenerator();
         }
 
         public void StartGame()
         {
-            firstUserPrompt();
-            for(var i = 0; i <_gameData.getTurn(); i++ ) 
+            OutputGenerator.FirstUserPrompt();
+            for(var i = 0; i <_gameData.GetTurn(); i++ ) 
             {
                 var currentUserInput = Console.ReadLine();
-                var errorCode = checkInputForErrors(currentUserInput.ToLower().Trim());
+                if (currentUserInput == null) continue;
+                var errorCode = CheckInputForErrors(currentUserInput.ToLower().Trim());
                 
                 if (errorCode == "valid")
                 {
-                    var firstGuess = InputFormater(currentUserInput);
-                    _gameData.setCurrentColourList(firstGuess);
+                    var firstGuess = InputFormatter(currentUserInput);
+                    _gameData.SetCurrentColourList(firstGuess);
 
                     var result = CalculateResult();
                     if (ConvertStringArrayToString(result).Equals(ConvertStringArrayToString(_winningOutput)))
                     {
-                        generateWin();
+                        OutputGenerator.GenerateWin();
                         break;
                     }
-                    promptUser(result);
-                    foreach (var dee in _gameData.getCorrectColourList())
+                    _outputGenerator.PromptUser(result);
+                    foreach (var dee in _gameData.GetCorrectColourList())
                     {
                         Console.WriteLine(dee);
                     }
                 }
                 else
                 {
-                    //errorHandler(errorCode);
-                    promptUser(errorCode);
+                    _outputGenerator.PromptUser(errorCode);
                 }
             }
         }
 
         private string[] CalculateResult()
         {
-            string[] guessOutput = new string[]{"w","w","w","w"};
+            var guessOutput = new[]{"w","w","w","w"};
             var pos = 0;
             
-            for(var i=0;i<_gameData.getCurrentColourList().Length;i++) //(string colourGuess in _gameData.getCurrentColourList())
+            for(var i=0;i<_gameData.GetCurrentColourList().Length;i++) 
             {
-                var colourGuess = _gameData.getCurrentColourList()[i];
-                if (!colourGuess.Equals(_gameData.getCorrectColourList()[i])) continue;
+                var colourGuess = _gameData.GetCurrentColourList()[i];
+                if (!colourGuess.Equals(_gameData.GetCorrectColourList()[i])) continue;
                 guessOutput[pos] = "b"; 
                 pos++;
             }
@@ -65,7 +68,7 @@ namespace Kata_Master_Mind.Controller
             return guessOutput.OrderBy(x => rnd.Next()).ToArray();  ;
         }
         
-        static string ConvertStringArrayToString(string[] array)
+        static string ConvertStringArrayToString(IEnumerable<string> array)
         {
             
             StringBuilder builder = new StringBuilder();
