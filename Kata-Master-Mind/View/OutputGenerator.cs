@@ -1,10 +1,13 @@
 using System;
 using Kata_Master_Mind.Controller;
+using Kata_Master_Mind.Model;
 
 namespace Kata_Master_Mind.View
 {
     public class OutputGenerator : InputHandler  //TODO:  change this
     {
+        public CurrentGameData _currentGameData;
+        
         public static void FirstUserPrompt()
         {
             Console.Clear();
@@ -16,35 +19,42 @@ namespace Kata_Master_Mind.View
 
         public static void GenerateWin()
         {
-            
             Console.Clear();
             Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
             Console.WriteLine("Well done!\n\nYOU WON");
             Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
         }
-
-        public void PromptUser(string[] outputChars)
+        
+        public static void GenerateLoss()
         {
-            gameHeader();
+            Console.Clear();
+            Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
+            Console.WriteLine("Error: you have had more than 60 tries!");
+            Console.WriteLine("~~~~~ ~~~~~~~~~~ ~~~~~");
+        }
+
+        public static void PromptUser(string[] outputChars, int turn)
+        {
+            GameHeader(turn);
             DrawHorizontalLine();
             Console.WriteLine("| "+outputChars[0]+" | "+outputChars[1]+" | "+outputChars[2]+" | "+outputChars[3]+" |");
             DrawHorizontalLine();
             Console.WriteLine("\nNot quite, enter another guess:");
         }
 
-        public void PromptUser(string errorValue)
+        public static void PromptUser(string errorValue, int turn)
         {
-            gameHeader();
+            GameHeader(turn);
             Console.WriteLine("ERROR");
             Console.WriteLine("|| "+errorValue +"\n||");
             Console.WriteLine("\nPlease re-enter you guess:");
         }
         
-        private void gameHeader()
+        private static void GameHeader(int turn)
         {
             Console.Clear();
-            Console.WriteLine("~~~~~ MasterMind ~~~~~\n");  
-            Console.WriteLine("Turns:");
+            Console.WriteLine("~~~~~ MasterMind ~~~~~");  
+            Console.WriteLine("Turns: " + turn +"\n");
         }
 
         private static void DrawHorizontalLine()

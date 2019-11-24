@@ -6,7 +6,7 @@ namespace Kata_Master_Mind.Controller
     {
         //attach to interface
 
-        protected string[] InputFormatter(string userInput) 
+        protected static string[] InputFormatter(string userInput) 
         {
             var formattedInput = new string[4];
             var answerCounter = 0;
@@ -19,7 +19,7 @@ namespace Kata_Master_Mind.Controller
             return formattedInput;
         }
 
-        private string ConvertLetter(char letter)
+        private static string ConvertLetter(char letter)
         {
             if (letter == 'r')
             {

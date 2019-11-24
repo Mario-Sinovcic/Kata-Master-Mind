@@ -10,19 +10,19 @@ namespace Kata_Master_Mind.Controller
     public class OutputController : InputHandler
     {
         private readonly CurrentGameData _gameData;
-        private OutputGenerator _outputGenerator;
         private readonly string[] _winningOutput = {"b", "b", "b", "b"};
+        private int _turnCounter;
         
         public OutputController(CurrentGameData gameData)
         {
             _gameData = gameData;
-            _outputGenerator = new OutputGenerator();
+            _turnCounter = 0;
         }
 
         public void StartGame()
         {
             OutputGenerator.FirstUserPrompt();
-            for(var i = 0; i <_gameData.GetTurn(); i++ ) 
+            while(_gameData.GetTurn()< _gameData.GetTurnLimit()) 
             {
                 var currentUserInput = Console.ReadLine();
                 if (currentUserInput == null) continue;
@@ -30,8 +30,8 @@ namespace Kata_Master_Mind.Controller
                 
                 if (errorCode == "valid")
                 {
-                    var firstGuess = InputFormatter(currentUserInput);
-                    _gameData.SetCurrentColourList(firstGuess);
+                    var currentGuess = InputFormatter(currentUserInput);
+                    _gameData.SetCurrentColourList(currentGuess);
 
                     var result = CalculateResult();
                     if (ConvertStringArrayToString(result).Equals(ConvertStringArrayToString(_winningOutput)))
@@ -39,17 +39,17 @@ namespace Kata_Master_Mind.Controller
                         OutputGenerator.GenerateWin();
                         break;
                     }
-                    _outputGenerator.PromptUser(result);
-                    foreach (var dee in _gameData.GetCorrectColourList())
-                    {
-                        Console.WriteLine(dee);
-                    }
+                    _turnCounter++;
+                    _gameData.SetTurn(_turnCounter);
+                    OutputGenerator.PromptUser(result, _gameData.GetTurn());
                 }
                 else
                 {
-                    _outputGenerator.PromptUser(errorCode);
+                    OutputGenerator.PromptUser(errorCode, _gameData.GetTurn());
                 }
             }
+
+            OutputGenerator.GenerateLoss();
         }
 
         private string[] CalculateResult()
