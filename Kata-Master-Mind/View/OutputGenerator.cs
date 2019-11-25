@@ -4,7 +4,7 @@ using Kata_Master_Mind.Controller;
 
 namespace Kata_Master_Mind.View
 {
-    public class OutputGenerator : InputHandler  //TODO:  change this
+    public static class OutputGenerator  
     {
         public static void FirstUserPrompt()
         {
@@ -34,10 +34,10 @@ namespace Kata_Master_Mind.View
         public static void PromptUser(string[] outputChars, int turn)
         {
             GameHeader(turn);
-            DrawHorizontalLine();
+            DrawHorizontalLine(outputChars.Length);
             var outputString = outputChars.Aggregate("|", (current, guess) => current + " " + guess + " |");
             Console.WriteLine(outputString);
-            DrawHorizontalLine();
+            DrawHorizontalLine(outputChars.Length);
             Console.WriteLine("\nNot quite, enter another guess:");
         }
 
@@ -56,9 +56,14 @@ namespace Kata_Master_Mind.View
             Console.WriteLine("Turns: " + turn +"\n");
         }
 
-        private static void DrawHorizontalLine()
+        private static void DrawHorizontalLine(int amountOfChars)
         {
-            Console.WriteLine(" ---------------");
+            var outputLine = " ";
+            for (var i = 0; i < amountOfChars; i++)
+            {
+               outputLine += "----";
+            }
+            Console.WriteLine(outputLine);
         }
     }
 }

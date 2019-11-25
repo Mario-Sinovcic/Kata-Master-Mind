@@ -69,7 +69,5 @@ namespace Kata_Master_Mind.Controller
             }
             return "e";
         }
-        
-        
     }
 }

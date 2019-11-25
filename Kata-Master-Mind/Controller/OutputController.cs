@@ -67,12 +67,12 @@ namespace Kata_Master_Mind.Controller
             var rnd=new Random();
             return guessOutput.OrderBy(x => rnd.Next()).ToArray();  ;
         }
-        
-        static string ConvertStringArrayToString(IEnumerable<string> array)
+
+        private static string ConvertStringArrayToString(IEnumerable<string> array)
         {
             
             StringBuilder builder = new StringBuilder();
-            foreach (string value in array)
+            foreach (var value in array)
             {
                 builder.Append(value);
                 builder.Append('.');

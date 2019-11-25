@@ -14,19 +14,6 @@ namespace Kata_Master_Mind.Controller
         private readonly string[] _generatedColourList;
         private List<GameRuleConfig> _configFile;
 
-//        public GameInitializer()
-//        {
-//            _allColourCollection = new[]{"RED", "BLUE", "GREEN", "ORANGE", "PURPLE", "YELLOW"};
-//            _playableColours = 4;
-//            _generatedColourList = new string[4];
-//            
-//            GenerateRandomColours();
-//            
-//            var gameDataObject = new CurrentGameData(_generatedColourList);
-//            var outputController = new OutputController(gameDataObject);
-//            outputController.StartGame();
-//        }
-        
         public GameInitializer(string configPath)
         {
             LoadJson(configPath);
