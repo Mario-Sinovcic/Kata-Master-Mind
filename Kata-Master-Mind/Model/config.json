@@ -1,5 +1,5 @@
 [{
   "ColourList": ["RED", "BLUE", "GREEN", "ORANGE", "PURPLE", "YELLOW"],
   "TotalColoursPicked": "4",
-  "TurnLimit": "3"
+  "TurnLimit": "60"
 }]

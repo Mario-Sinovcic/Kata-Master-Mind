@@ -2,13 +2,13 @@ using System;
 
 namespace Kata_Master_Mind.Controller
 {
-    public class InputHandler : InputValidator
+    public class InputHandler 
     {
         //attach to interface
 
-        protected static string[] InputFormatter(string userInput) 
+        protected static string[] InputFormatter(string userInput, int coloursPicked) 
         {
-            var formattedInput = new string[4];
+            var formattedInput = new string[coloursPicked];
             var answerCounter = 0;
 
             foreach (var guess in userInput.Trim().Split(' '))

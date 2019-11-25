@@ -35,7 +35,7 @@ namespace Kata_Master_Mind.Controller
             _generatedColourList = new string[_playableColours];
             GenerateRandomColours();
             
-            var gameDataObject = new CurrentGameData(_generatedColourList, _configFile[0].TurnLimit);
+            var gameDataObject = new CurrentGameData(_generatedColourList,_playableColours ,_configFile[0].TurnLimit);
             var outputController = new OutputController(gameDataObject);
             outputController.StartGame();
         }

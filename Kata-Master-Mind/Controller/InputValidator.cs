@@ -4,15 +4,14 @@ using System.Text.RegularExpressions;
 
 namespace Kata_Master_Mind.Controller
 {
-    public class InputValidator //uses error config
+    public abstract class InputValidator 
     {
-        protected static string CheckInputForErrors(string userInput)
+        public static string CheckInputForErrors(string userInput, int coloursPicked)
         {
-            if (userInput.Length != 7)
+            if (userInput.Length != (coloursPicked + coloursPicked - 1))
             {
                 return "Error: you must pass 4 colours!";
             }
-            
             
             return userInput.Any(colour => colour!='r'&&colour!='g'&&colour!='b'&&colour!='o'&&colour!='p'&&colour!='y'&&colour!=' ') ? "Error: you have given an invalid colour!" : "valid";
         }

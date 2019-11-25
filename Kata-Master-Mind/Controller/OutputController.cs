@@ -10,6 +10,7 @@ namespace Kata_Master_Mind.Controller
     public class OutputController : InputHandler
     {
         private readonly CurrentGameData _gameData;
+        private readonly InputValidator _validator;
         private readonly string[] _winningOutput = {"b", "b", "b", "b"};
         private int _turnCounter;
         
@@ -26,11 +27,11 @@ namespace Kata_Master_Mind.Controller
             {
                 var currentUserInput = Console.ReadLine();
                 if (currentUserInput == null) continue;
-                var errorCode = CheckInputForErrors(currentUserInput.ToLower().Trim());
+                var errorCode = InputValidator.CheckInputForErrors(currentUserInput.ToLower().Trim(), _gameData.GetColoursPicked());
                 
                 if (errorCode == "valid")
                 {
-                    var currentGuess = InputFormatter(currentUserInput);
+                    var currentGuess = InputFormatter(currentUserInput, _gameData.GetColoursPicked());
                     _gameData.SetCurrentColourList(currentGuess);
 
                     var result = CalculateResult();

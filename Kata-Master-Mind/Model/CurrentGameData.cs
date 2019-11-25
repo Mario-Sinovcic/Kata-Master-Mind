@@ -4,12 +4,14 @@ namespace Kata_Master_Mind.Model
     {
         private string[] _currentColours;
         private readonly string[] _correctColours;
+        private readonly int _coloursPicked;
         private readonly int _turnLimit;
         private int _currentTurn;
 
-        public CurrentGameData(string[] correctcolours, int turnLimit)
+        public CurrentGameData(string[] correctcolours,int coloursPicked,int turnLimit)
         { 
             _correctColours = correctcolours;
+            _coloursPicked = coloursPicked;
             _turnLimit = turnLimit;
             _currentTurn = 0;
         }
@@ -24,5 +26,7 @@ namespace Kata_Master_Mind.Model
         public void SetTurn(int turn) { _currentTurn = turn; }
         
         public int GetTurnLimit() { return _turnLimit; }
+        
+        public int GetColoursPicked() { return _coloursPicked; }
     }
 }
