@@ -6,6 +6,7 @@
         <e p="bin" t="ExcludeRecursive" />
         <e p="Controller" t="Include">
           <e p="GameInitializer.cs" t="Include" />
+          <e p="IInputHandler.cs" t="Include" />
           <e p="InputHandler.cs" t="Include" />
           <e p="InputValidator.cs" t="Include" />
           <e p="OutputController.cs" t="Include" />
