@@ -55,14 +55,14 @@ namespace Kata_Master_Mind.Controller
         private string[] CalculateResult()
         {
             var guessOutput = DefaultStringCreator(_gameData.GetColoursPicked());
-            var pos = 0;
+            var position = 0;
             
             for(var i=0;i<_gameData.GetCurrentColourList().Length;i++) 
             {
                 var colourGuess = _gameData.GetCurrentColourList()[i];
                 if (!colourGuess.Equals(_gameData.GetCorrectColourList()[i])) continue;
-                guessOutput[pos] = "b"; 
-                pos++;
+                guessOutput[position] = "b"; 
+                position++;
             }
             var rnd=new Random();
             return guessOutput.OrderBy(x => rnd.Next()).ToArray();  ;

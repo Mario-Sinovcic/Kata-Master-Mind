@@ -12,17 +12,17 @@ namespace Kata_Master_Mind.Controller
         private readonly string[] _allColourCollection;
         private readonly int _playableColours;
         private readonly string[] _generatedColourList;
-        private List<GameRuleConfig> _configFile;
+        private GameRuleConfig _configFile;
 
         public GameInitializer(string configPath)
         {
             LoadJson(configPath);
-            _allColourCollection = _configFile[0].ColourList;
-            _playableColours = _configFile[0].TotalColoursPicked;
+            _allColourCollection = _configFile.ColourList;
+            _playableColours = _configFile.TotalColoursPicked;
             _generatedColourList = new string[_playableColours];
             GenerateRandomColours();
             
-            var gameDataObject = new CurrentGameData(_generatedColourList,_playableColours ,_configFile[0].TurnLimit);
+            var gameDataObject = new CurrentGameData(_generatedColourList,_playableColours ,_configFile.TurnLimit);
             var outputController = new OutputController(gameDataObject);
             outputController.StartGame();
         }
@@ -31,8 +31,8 @@ namespace Kata_Master_Mind.Controller
         {
             using var r = new StreamReader(path);
             var json = r.ReadToEnd();
-            _configFile = JsonConvert.DeserializeObject<List<GameRuleConfig>>(json);
-            Console.Write(_configFile[0].ColourList[2]);
+            _configFile = JsonConvert.DeserializeObject<List<GameRuleConfig>>(json).First();
+            Console.Write(_configFile.ColourList[2]);
         }
 
         private class GameRuleConfig
