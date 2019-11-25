@@ -1,11 +1,33 @@
 using System;
+using System.Linq;
 
 namespace Kata_Master_Mind.Controller
 {
     public class InputHandler 
     {
-        //attach to interface
+        protected static string[] WinningStringCreator(int coloursPicked)
+        {
+            var winningSequence= new string [coloursPicked];
+            for (var i = 0; i < coloursPicked; i++)
+            {
+                winningSequence[i] = "b";
+            }
 
+            return winningSequence;
+        }
+        
+        protected static string[] DefaultStringCreator(int coloursPicked)
+        {
+            var initSequence= new string [coloursPicked];
+            for (var i = 0; i < coloursPicked; i++)
+            {
+                initSequence[i] = "w";
+            }
+
+            return initSequence;
+        }
+        
+        
         protected static string[] InputFormatter(string userInput, int coloursPicked) 
         {
             var formattedInput = new string[coloursPicked];
@@ -47,5 +69,7 @@ namespace Kata_Master_Mind.Controller
             }
             return "e";
         }
+        
+        
     }
 }

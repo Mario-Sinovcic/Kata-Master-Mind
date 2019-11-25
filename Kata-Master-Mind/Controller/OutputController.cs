@@ -10,14 +10,14 @@ namespace Kata_Master_Mind.Controller
     public class OutputController : InputHandler
     {
         private readonly CurrentGameData _gameData;
-        private readonly InputValidator _validator;
-        private readonly string[] _winningOutput = {"b", "b", "b", "b"};
+        private readonly string[] _winningOutput;
         private int _turnCounter;
         
         public OutputController(CurrentGameData gameData)
         {
             _gameData = gameData;
             _turnCounter = 0;
+            _winningOutput = WinningStringCreator(_gameData.GetColoursPicked());
         }
 
         public void StartGame()
@@ -40,7 +40,6 @@ namespace Kata_Master_Mind.Controller
                         OutputGenerator.GenerateWin();
                         return;
                     }
-                    
                     _turnCounter++;
                     _gameData.SetTurn(_turnCounter);
                     OutputGenerator.PromptUser(result, _gameData.GetTurn());
@@ -50,13 +49,12 @@ namespace Kata_Master_Mind.Controller
                     OutputGenerator.PromptUser(errorCode, _gameData.GetTurn());
                 }
             }
-
             OutputGenerator.GenerateLoss(_gameData.GetTurnLimit());
         }
 
         private string[] CalculateResult()
         {
-            var guessOutput = new[]{"w","w","w","w"};
+            var guessOutput = DefaultStringCreator(_gameData.GetColoursPicked());
             var pos = 0;
             
             for(var i=0;i<_gameData.GetCurrentColourList().Length;i++) 

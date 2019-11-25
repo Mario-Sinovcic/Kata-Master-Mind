@@ -1,4 +1,5 @@
 using System;
+using System.Linq;
 using Kata_Master_Mind.Controller;
 
 namespace Kata_Master_Mind.View
@@ -34,7 +35,8 @@ namespace Kata_Master_Mind.View
         {
             GameHeader(turn);
             DrawHorizontalLine();
-            Console.WriteLine("| "+outputChars[0]+" | "+outputChars[1]+" | "+outputChars[2]+" | "+outputChars[3]+" |");
+            var outputString = outputChars.Aggregate("|", (current, guess) => current + " " + guess + " |");
+            Console.WriteLine(outputString);
             DrawHorizontalLine();
             Console.WriteLine("\nNot quite, enter another guess:");
         }
