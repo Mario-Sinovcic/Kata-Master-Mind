@@ -3,9 +3,9 @@ using System.Linq;
 
 namespace Kata_Master_Mind.Controller
 {
-    public class InputHandler : IInputHandler
+    public class InputHandler 
     {
-        public string[] WinningStringCreator(int coloursPicked)
+        protected static string[] WinningStringCreator(int coloursPicked)
         {
             var winningSequence= new string [coloursPicked];
             for (var i = 0; i < coloursPicked; i++)
@@ -15,8 +15,8 @@ namespace Kata_Master_Mind.Controller
 
             return winningSequence;
         }
-        
-        public string[] DefaultStringCreator(int coloursPicked)
+
+        protected static string[] DefaultStringCreator(int coloursPicked)
         {
             var initSequence= new string [coloursPicked];
             for (var i = 0; i < coloursPicked; i++)
@@ -26,9 +26,9 @@ namespace Kata_Master_Mind.Controller
 
             return initSequence;
         }
-        
-        
-        public string[] InputFormatter(string userInput, int coloursPicked) 
+
+
+        protected static string[] InputFormatter(string userInput, int coloursPicked) 
         {
             var formattedInput = new string[coloursPicked];
             var answerCounter = 0;

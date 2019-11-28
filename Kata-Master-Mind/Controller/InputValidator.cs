@@ -10,7 +10,7 @@ namespace Kata_Master_Mind.Controller
         {
             if (userInput.Length != (coloursPicked + coloursPicked - 1))
             {
-                return "Error: you must pass "+coloursPicked+" colours!";
+                return $"Error: you must pass {coloursPicked} colours!";
             }
             
             return userInput.Any(colour => colour!='r'&&colour!='g'&&colour!='b'&&colour!='o'&&colour!='p'&&colour!='y'&&colour!=' ') ? "Error: you have given an invalid colour!" : "valid";
